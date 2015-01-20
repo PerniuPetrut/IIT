@@ -1,0 +1,8 @@
+#!/bin/bash
+FOLDER=/home/
+EXTENSION='*.png'
+BIGSIZE=0
+for i in $(find $FOLDER -name $EXTENSION) ; do
+   SIZE=$(stat -c%s "$i") ; BIGSIZE=$(($BIGSIZE + $SIZE))
+ done
+echo "The size of all the files in the folder is $BIGSIZE bytes"
